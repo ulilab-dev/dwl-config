@@ -12,9 +12,10 @@ sleep 0.5
 wlr-randr --output HDMI-A-1 --mode 1920x1080@100
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 waybar
-waypaper --restore
-dunst
 ) &
+
+waypaper --restore &
+dunst &
 
 exec dbus-run-session dwl
 

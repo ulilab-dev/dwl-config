@@ -21,9 +21,13 @@ static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You ca
 static int log_level = WLR_ERROR;
 
 static const Rule rules[] = {
-	/* app_id             title       tags mask     isfloating   monitor */
-	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1 }, /* Start on currently visible tags floating, not tiled */
-	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1 }, /* Start on ONLY tag "9" */
+	/* app_id                                    title       tags mask     isfloating   monitor */
+	{ "Gimp_EXAMPLE",                            NULL,       0,            1,           -1 }, /* Start on currently visible tags floating, not tiled */
+	{ "firefox_EXAMPLE",                         NULL,       1 << 8,       0,           -1 }, /* Start on ONLY tag "9" */
+	{ "waypaper",                                NULL,       0,            1,           -1 },
+	{ "localsend",                               NULL,       0,            1,           -1 },
+        { "org.gnome.baobab",                        NULL,       0,            1,           -1 },
+
     /* default/example rule: can be changed but cannot be eliminated; at least one rule must exist */
 };
 
@@ -93,7 +97,7 @@ static const uint32_t send_events_mode = LIBINPUT_CONFIG_SEND_EVENTS_ENABLED;
 LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT
 LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE
 */
-static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE;
+static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT;
 static const double accel_speed = 0.0;
 
 /* You can choose between:
@@ -118,6 +122,7 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "rofi","-show","drun", NULL };
 static const char *file[] = {"dolphin", NULL};
+static const char *waypaper[] = {"waypaper", NULL}; 
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: 2 -> at, etc. */
@@ -125,6 +130,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_d,           spawn,            {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,      spawn,            {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_e,           spawn,            {.v = file} },
+	{ MODKEY,                    XKB_KEY_w,           spawn,            {.v = waypaper} },
 	{ MODKEY,                    XKB_KEY_j,           focusstack,       {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,           focusstack,       {.i = -1} },
 	{ MODKEY,                    XKB_KEY_i,           incnmaster,       {.i = +1} },
