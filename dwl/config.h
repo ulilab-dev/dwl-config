@@ -126,7 +126,7 @@ static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "rofi","-show","drun", NULL };
 static const char *file[] = {"dolphin", NULL};
 static const char *waypaper[] = {"waypaper", NULL};
-static const char *toggle_waybar[] = { "pkill", "-SIGUSR1", "waybar", NULL };
+static const char *emoji[] = { "rofi","-show", "emoji", "-config", "~/.config/rofi/clip.rasi", NULL };
 
 
 static const Key keys[] = {
@@ -136,7 +136,9 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,      spawn,            {.v = termcmd} },
 	{ MODKEY,                    XKB_KEY_e,           spawn,            {.v = file} },
 	{ MODKEY,                    XKB_KEY_w,           spawn,            {.v = waypaper} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_w,           spawn,            {.v = toggle_waybar} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_w,           spawn,       SHCMD("~/.config/waybar/toggle_waybar.sh") },
+	{ MODKEY,                    XKB_KEY_v,           spawn,       SHCMD("~/.config/rofi/clipboard.sh") },
+	{ MODKEY,                    XKB_KEY_period,      spawn,            {.v = emoji} },
 	{ MODKEY,                    XKB_KEY_j,           focusstack,       {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,           focusstack,       {.i = -1} },
 	{ MODKEY,                    XKB_KEY_i,           incnmaster,       {.i = +1} },
@@ -155,7 +157,7 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_0,           view,             {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright,  tag,              {.ui = ~0} },
 	{ MODKEY,                    XKB_KEY_comma,       focusmon,         {.i = WLR_DIRECTION_LEFT} },
-	{ MODKEY,                    XKB_KEY_period,      focusmon,         {.i = WLR_DIRECTION_RIGHT} },
+/*	{ MODKEY,                    XKB_KEY_period,      focusmon,         {.i = WLR_DIRECTION_RIGHT} }, */
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,        tagmon,           {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,     tagmon,           {.i = WLR_DIRECTION_RIGHT} },
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                        0),
