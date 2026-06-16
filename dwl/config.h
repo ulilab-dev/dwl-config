@@ -127,7 +127,7 @@ static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "rofi","-show","drun", NULL };
 static const char *file[] = {"dolphin", NULL};
 static const char *waypaper[] = {"waypaper", NULL};
-static const char *emoji[] = { "rofi","-show", "emoji", "-config", "~/.config/rofi/clip.rasi", NULL };
+static const char *emoji[] = { "rofi","-show", "emoji", "-config", "~/.config/rofi/themes/clip.rasi", NULL };
 
 
 static const Key keys[] = {
